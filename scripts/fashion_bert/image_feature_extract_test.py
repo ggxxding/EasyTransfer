@@ -500,13 +500,22 @@ class PatchFeatureExtractor(PredictorInterface):
 
 def main(args):
   output_feature = ''
-  img = cv2.imread(args.img_path)
+  for i in range(8380):
+    print('./imgs/'+str(i+1)+'.png')
+    img = cv2.imread('./imgs/'+str(i+1)+'.png')
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    feature_extractor = PatchFeatureExtractor(args.model_path)
+    results_batch = feature_extractor.predict([img], batch_size=1)
+    _, fname = os.path.split('./imgs/'+str(i+1)+'.png')
+    np.save('./imgfeatures/'+ fname + '.npy', results_batch[0]['feature'])
+  '''img = cv2.imread(args.img_path)
   # convert to rgb order
   img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
   feature_extractor = PatchFeatureExtractor(args.model_path)
   results_batch = feature_extractor.predict([img], batch_size=1)
   _, fname = os.path.split(args.img_path)
   np.save(fname+'.npy', results_batch[0]['feature'])
+  '''
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser('image feature extract tool')

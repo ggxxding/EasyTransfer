@@ -1,5 +1,5 @@
-ls -d $PWD/fashionbert_fashiongen_patch_train_1K > train_list.list_csv
-ls -d $PWD/fashionbert_fashiongen_patch_train_1K > dev_list.list_csv
+ls -d $PWD/193603.csv > train_list.list_csv
+ls -d $PWD/193603.csv > dev_list.list_csv
 
 export CUDA_VISIBLE_DEVICES="0"
 

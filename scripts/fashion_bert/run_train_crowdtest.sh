@@ -1,5 +1,5 @@
-ls -d $PWD/fashionbert_fashiongen_patch_train_1K > train_list.list_csv
-ls -d $PWD/fashionbert_fashiongen_patch_train_1K > dev_list.list_csv
+ls -d $PWD/crowdtest/train_list.list_csv > train_list.list_csv
+ls -d $PWD/crowdtest/dev_list.list_csv > dev_list.list_csv
 
 export CUDA_VISIBLE_DEVICES="0"
 
@@ -8,10 +8,10 @@ python pretrain_main.py \
   --mode=train_and_evaluate \
   --train_input_fp=train_list.list_csv  \
   --eval_input_fp=dev_list.list_csv  \
-  --pretrain_model_name_or_path=pai-imagebert-base-en  \
+  --pretrain_model_name_or_path=pai-imagebert-base-zh  \
   --input_sequence_length=64  \
   --train_batch_size=4  \
-  --num_epochs=1  \
+  --num_epochs=10  \
   --model_dir=./fashionbert_model_dir  \
   --learning_rate=1e-4  \
   --image_feature_size=131072  \

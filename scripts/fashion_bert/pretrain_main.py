@@ -32,6 +32,7 @@ _app_flags.DEFINE_integer("vocab_size", default=30522, help='')
 _app_flags.DEFINE_integer("image_feature_size", default=None, help='')
 _APP_FLAGS = _app_flags.FLAGS
 
+print("sequencelength",_APP_FLAGS.input_sequence_length)
 
 class ImageBertPretrain(base_model):
 

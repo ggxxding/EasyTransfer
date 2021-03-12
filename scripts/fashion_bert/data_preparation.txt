@@ -1,0 +1,36 @@
+{"sentids": [32108], 
+"text": "Cropped skinny-fit jeans in blue 'Sanoma' wash Fading throughout Five-pocket styling Embroidered logo at back pocket Contrast stitching in golden yellow Zip-fly"，
+"image":"193603_4.png"，
+"split": "train",
+"label":"true"}
+{"sentids": [32104], 
+"text": "Lightweight knit long sleeve t-shirt in ivory white Ribbed knit trim at scoopneck collar and armscyes Raw edge at hem Tonal stitching"，
+"image":"193603_3.png"，
+"split": "train",
+"label":"false"}
+model download path:
+/home/sstl/.eztransfer_modelzoo/imagebert/pai-imagebert-zh.tgz
+		img	txt
+0001		4191	1
+4190		8380	4190
+4191		1	4191
+8380		4190	8380
+
+1:6704
+6705:7542
+7543:~
+
+image_feature:float:131072,image_mask:int:64,input_ids:int:64,input_mask:int:64,segment_ids:int:64,nx_sent_labels:int:1,prod_desc:str:1,text_prod_id:str:1,image_prod_id:str:1,prod_img_id:str:1
+
+image_feature:float:131072,image_mask:int:64,input_ids:int:64,input_mask:int:64,segment_ids:int:64,nx_sent_labels:int:1,prod_desc:str:1,text_prod_id:str:1,image_prod_id:str:1,prod_img_id:str:1
+
+image_feature:float:131072,image_mask:int:64,masked_patch_positions:int:5,input_ids:int:64,input_mask:int:64,segment_ids:int:64,masked_lm_positions:int:10,masked_lm_ids:int:10,masked_lm_weights:float:10,nx_sent_labels:int:1
+
+image_feature: image patch features, (image_feature size) = (patch_feature size) * (image_patch number). For example, given on image, we equally split it into 64 patches, and for each patch we extract 2048 embedding. Thus, the image_feature size is equal to 131072(2048*64) in our paper.
+image_mask: image mask to indicate there exists padding image_feature(s). In FashionBERT, all image are equally splitted into patches with same number. Thus, image_mask are 1.
+masked_patch_positions: the masked position of the patch sequence, which is randomly selected from the patch sequence.
+input_ids: input tokens ids, which is the same with BERT.
+input_mask: input mask of tokens, which is the same with BERT.
+segment_ids: input segment ids, which is used to distinct from image patch input. We use 0 to indicate text token input in our paper, which is the same with BERT.
+masked_lm_positions: the masked lm positions in input token sequence, which is the same with BERT.
+masked_lm_weights: the masked token ids at the masked positions, respectively, which is the same with BERT.

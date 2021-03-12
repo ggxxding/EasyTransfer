@@ -1,0 +1,19 @@
+
+run_eval.sh run_train.sh是原项目的脚本
+
+众测数据集用的是run_eval_crowdtest.sh和run_train_crowdtest.sh
+数据集地址：
+D:\dmj\众测数据集\FashionBert
+
+图片 ./imgs
+图片特征 ./imgfeatures
+json: ./wnqdata.txt
+
+
+步骤
+1.python image_feature_extract_test.py resnet_v1_50  ./imgs
+2. python crowddataProcessing.py
+	python crowddataProcessing_eval.py（代码未完善 生成的文件名需要改成和eval sh中对应）
+然后生成的list放到./crowdtest
+3.sh run_train_crowdtest.sh
+4.sh run_eval_crowdtest.sh
